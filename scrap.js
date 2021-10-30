@@ -1,7 +1,3 @@
-async function fetchData(url) {
-  return fetch(url);
-}
-
-const data = await fetchData('https://amazon.in');
-
-console.log('Data', data);
+fetch('https://amazon.in')
+  .then((data) => console.log('Data', data))
+  .catch((error) => console.log('Error', error));
