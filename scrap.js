@@ -2,7 +2,7 @@ var Xray = require('x-ray');
 var x = Xray();
 
 x(
-  'http://google.com',
+  'https://amazon.in',
   'title'
 )(function (err, title) {
   console.log(title); // Google
