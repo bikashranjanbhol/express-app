@@ -1,16 +1,15 @@
-const axios = require('axios');
+// Listen on a specific host via the HOST environment variable
+var host = process.env.HOST || '0.0.0.0';
+// Listen on a specific port via the PORT environment variable
+var port = process.env.PORT || 8080;
 
-// Make a request for a user with a given ID
-axios
-  .get('https://amazon.in')
-  .then(function (response) {
-    // handle success
-    console.log(response);
+var cors_proxy = require('cors-anywhere');
+cors_proxy
+  .createServer({
+    originWhitelist: [], // Allow all origins
+    requireHeader: ['origin', 'x-requested-with'],
+    removeHeaders: ['cookie', 'cookie2'],
   })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .then(function () {
-    // always executed
+  .listen(port, host, function () {
+    console.log('Running CORS Anywhere on ' + host + ':' + port);
   });
