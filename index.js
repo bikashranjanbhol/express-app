@@ -21,6 +21,8 @@
 
 var http = require('http');
 
+consoler.log(Object.values(require('os').networkInterfaces()));
+
 http
   .createServer(function (req, res) {
     res.write('Hello, Node.js!'); //write a response to the client
